@@ -1,8 +1,16 @@
 const plusBtn = document.querySelectorAll('.plusBtn')
 const minusBtn = document.querySelectorAll('.minusBtn')
 const firstClassTPrice = +document.getElementById('firstClassTPrice').innerText
-const classicTPrice = +document.getElementById('classicTPrice').innerText
+const economyTPrice = +document.getElementById('economyTPrice').innerText
+const bookNow = document.getElementById('bookNow')
 let vatPercentage = 10
+let subTotal = 350
+let totalVatCost = (subTotal * vatPercentage) / 100
+let total = subTotal + totalVatCost
+
+document.getElementById('subTotal').innerText = subTotal
+document.getElementById('totalVat').innerText = totalVatCost
+document.getElementById('total').innerText = total
 
 function checkType(type, item) {
   let ticketCount = parseFloat(document.getElementById(item).value)
@@ -33,20 +41,20 @@ function checkingAll(btn, type) {
         checkType(type, 'firstClassTCount')
       } else if (
         e.target.parentElement.parentElement.parentElement.classList.contains(
-          'classicTGroup',
+          'economyTGroup',
         )
       ) {
-        checkType(type, 'classicTCount')
+        checkType(type, 'economyTCount')
       }
       let firstClassTCount = +document.getElementById('firstClassTCount').value
-      let classicTCount = +document.getElementById('classicTCount').value
+      let economyTCount = +document.getElementById('economyTCount').value
       let firstClassTotal = firstClassTPrice * firstClassTCount
-      let classicTotal = classicTPrice * classicTCount
-      console.log(firstClassTotal, classicTotal)
-      let subTotal = firstClassTotal + classicTotal
+      let economyTotal = economyTPrice * economyTCount
+      console.log(firstClassTotal, economyTotal)
+      subTotal = firstClassTotal + economyTotal
 
-      let totalVatCost = (subTotal * vatPercentage) / 100
-      let total = subTotal + totalVatCost
+      totalVatCost = (subTotal * vatPercentage) / 100
+      total = subTotal + totalVatCost
       document.getElementById('subTotal').innerText = subTotal
       document.getElementById('totalVat').innerText = totalVatCost
       document.getElementById('total').innerText = total
@@ -56,3 +64,16 @@ function checkingAll(btn, type) {
 let increment = checkingAll(plusBtn, 'inc')
 let decrement = checkingAll(minusBtn, 'dec')
 document.getElementById('vat').innerText = vatPercentage
+bookNow.addEventListener('click', function () {
+  document.getElementById('firstClassTBook').innerText = parseFloat(
+    document.getElementById('firstClassTCount').value,
+  )
+  document.getElementById('economyTBook').innerText = parseFloat(
+    document.getElementById('economyTCount').value,
+  )
+  document.getElementById('bill').innerText = '$' + total
+  document.querySelector('.congrats').style.display = 'flex'
+})
+document.getElementById('closCongrats').addEventListener('click', function () {
+  document.querySelector('.congrats').style.display = 'none'
+})

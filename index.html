@@ -58,10 +58,10 @@
                 </div>
             </div>
             
-            <div class="input-group classicTGroup f-class">
+            <div class="input-group economyTGroup f-class">
                 <div>
-                    <label for="">Economy ($ <span id="classicTPrice">100</span> )</label>
-                    <input id="classicTCount" class="inp-style inp-width" value="1" type="number" name="">
+                    <label for="">Economy ($ <span id="economyTPrice">100</span> )</label>
+                    <input id="economyTCount" class="inp-style inp-width" value="1" type="number" name="">
                 </div>
                 <div class="plus-minus-btn">
                     <p> <span class="plusBtn">+</span> <span class="minusBtn">-</span> </p>
@@ -73,16 +73,16 @@
                         <p>Subtotal</p>
                     </div>
                     <div class="right">
-                        <p>$ <span id="subTotal">350</span> </p>
+                        <p>$ <span id="subTotal"></span> </p>
                     </div>
                 </div>
 
                 <div class="amount">
                     <div class="left">
-                        <p>Charge <span id="vat">10</span> % VAT</p>
+                        <p>Charge <span id="vat"></span> % VAT</p>
                     </div>
                     <div class="right">
-                        <p>$ <span id="totalVat">35</span> </p>
+                        <p>$ <span id="totalVat"></span> </p>
                     </div>
                 </div>
                 <hr>
@@ -91,17 +91,25 @@
                         <h4>Total</h4>
                     </div>
                     <div class="right">
-                        <p>$ <span id="total">385</span></p>
+                        <p>$ <span id="total"></span></p>
                     </div>
                 </div>
             </div>
-            <button class="btn-style">Book Now</button>
+            <button id="bookNow" class="btn-style">Book Now</button>
         </div>
 
         <div class="booking-content">
             <h1>discover <br> around the world</h1>
             <p>Lorem ipsum dolor sit amet consectetur adipisicingelit. Provident voluptatibus quam fuga laborumalias veniam libero autem quasi maxime ullam vero nama imi dolor, architecto ab facilis eaque deserunt nobise voluptatibus quam</p>
         </div>
+    </section>
+
+    <section class="congrats">
+        <h1> <span id="closCongrats">X</span> </h1>
+        <h2>CONGRATULATION</h2><h3>You have booked   </h3>
+        <h4> First Class Ticket : <span id="firstClassTBook"></span><br>Economy Ticket  : <span id="economyTBook"></span> 
+        </h4>
+        <h3>Your Total Bill : <span id="bill"></span></h3>
     </section>
 
     <!--Thank You-->
